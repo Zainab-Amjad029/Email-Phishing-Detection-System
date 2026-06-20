@@ -1,0 +1,47 @@
+body{
+background:#0f172a;
+color:white;
+}
+
+.navbar{
+background:#020617;
+padding:15px;
+}
+
+.card{
+background:#1e293b;
+color:white;
+border:none;
+border-radius:15px;
+}
+
+.table{
+color:white;
+}
+
+.table th{
+color:#38bdf8;
+}
+
+textarea,
+input{
+background:#334155 !important;
+color:white !important;
+border:none !important;
+}
+
+.btn{
+border-radius:12px;
+}
+
+.alert-danger{
+font-weight:bold;
+}
+
+.alert-success{
+font-weight:bold;
+}
+
+h1,h2,h3,h4,h5{
+color:#38bdf8;
+}

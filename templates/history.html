@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h2>Scan History</h2>
+
+<hr>
+
+<a href="/export" class="btn btn-success mb-3">
+Export CSV
+</a>
+
+<table class="table table-bordered table-striped">
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>Prediction</th>
+<th>Risk Score</th>
+<th>Date</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for scan in scans %}
+
+<tr>
+
+<td>{{ scan[0] }}</td>
+
+<td>
+
+{% if scan[3] == "PHISHING" %}
+<span class="badge bg-danger">
+PHISHING
+</span>
+{% else %}
+<span class="badge bg-success">
+SAFE
+</span>
+{% endif %}
+
+</td>
+
+<td>{{ scan[4] }}%</td>
+
+<td>{{ scan[6] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% endblock %}

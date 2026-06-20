@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h2>
+
+Analyze Email
+
+</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<textarea
+name="email"
+rows="10"
+class="form-control"
+placeholder="Paste email content here">
+</textarea>
+
+<br>
+
+<h5>OR Upload Email File</h5>
+
+<input
+type="file"
+name="email_file"
+class="form-control">
+
+<br>
+
+<button class="btn btn-danger">
+Analyze Email
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

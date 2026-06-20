@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Admin Dashboard</h2>
+
+<hr>
+
+<div class="card shadow mb-4">
+
+<div class="card-body">
+
+<h4>Registered Users</h4>
+
+<table class="table table-bordered">
+
+<tr>
+
+<th>ID</th>
+<th>Username</th>
+<th>Email</th>
+
+</tr>
+
+{% for user in users %}
+
+<tr>
+
+<td>{{ user[0] }}</td>
+<td>{{ user[1] }}</td>
+<td>{{ user[2] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h4>Recent Scans</h4>
+
+<table class="table table-bordered">
+
+<tr>
+
+<th>ID</th>
+<th>Prediction</th>
+<th>Risk Score</th>
+
+</tr>
+
+{% for scan in scans %}
+
+<tr>
+
+<td>{{ scan[0] }}</td>
+<td>{{ scan[3] }}</td>
+<td>{{ scan[4] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+{% endblock %}

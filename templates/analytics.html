@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Analytics Dashboard</h2>
+
+<hr>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card">
+
+<div class="card-body">
+
+<h4>Total Scans</h4>
+
+<h1>{{ total }}</h1>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card">
+
+<div class="card-body">
+
+<h4>Phishing</h4>
+
+<h1>{{ phishing }}</h1>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card">
+
+<div class="card-body">
+
+<h4>Safe</h4>
+
+<h1>{{ safe }}</h1>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<br>
+
+<canvas id="pieChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx =
+document.getElementById(
+'pieChart'
+);
+
+new Chart(ctx, {
+
+type:'pie',
+
+data:{
+
+labels:[
+'Phishing',
+'Safe'
+],
+
+datasets:[{
+
+data:[
+{{ phishing }},
+{{ safe }}
+]
+
+}]
+
+}
+
+});
+
+</script>
+
+{% endblock %}

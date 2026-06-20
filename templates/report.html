@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h2>
+
+Scan Result
+
+</h2>
+
+<hr>
+
+{% if result == "PHISHING" %}
+
+<div class="alert alert-danger">
+
+<h3>
+
+⚠ PHISHING EMAIL
+
+</h3>
+
+</div>
+
+{% else %}
+
+<div class="alert alert-success">
+
+<h3>
+
+✓ SAFE EMAIL
+
+</h3>
+
+<h3>Risk Level: {{ risk_level }}</h3>
+
+<h4>Confidence: {{ confidence }}%</h4>
+{% if ai_enabled %}
+    {% if ai_prediction %}
+    <h5>Advanced AI prediction: {{ ai_prediction }} {% if ai_confidence %}({{ ai_confidence }}% confidence){% endif %}</h5>
+    {% else %}
+    <p class="text-muted">Advanced AI analysis enabled but produced no result.</p>
+    {% endif %}
+{% endif %}
+
+</div>
+
+{% endif %}
+
+<h4>
+
+Risk Score:
+
+{{ score }}%
+
+</h4>
+
+<hr>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <strong>Sender:</strong> {{ sender_email }}
+    </div>
+    <div class="col-md-6">
+        <strong>Receiver:</strong> {{ receiver_email }}
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <strong>Word Count:</strong> {{ word_count }}
+    </div>
+    <div class="col-md-6">
+        <strong>Excerpt:</strong> {{ excerpt }}
+    </div>
+</div>
+
+<hr>
+
+<h4>
+
+Reasons
+
+</h4>
+
+<ul>
+
+{% for reason in reasons %}
+
+<li>
+
+{{ reason }}
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+<a href="/scan"
+class="btn btn-primary">
+
+Analyze Another Email
+
+</a>
+
+<a
+href="/pdf/{{ scan_id }}"
+class="btn btn-success">
+
+Download PDF Report
+
+</a>
+
+</div>
+
+</div>
+
+<div class="alert alert-warning">
+
+<h5>Security Recommendation</h5>
+
+<ul>
+
+<li>Do not click suspicious links</li>
+
+<li>Do not provide credentials</li>
+
+<li>Verify sender identity</li>
+
+<li>Report phishing attempts</li>
+
+</ul>
+
+</div>
+
+{% endblock %}

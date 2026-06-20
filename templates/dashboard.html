@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">
+
+Dashboard
+
+</h1>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h5>
+
+Total Scans
+
+</h5>
+
+<h1>
+
+{{ total }}
+
+</h1>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h5>
+
+Phishing Emails
+
+</h5>
+
+<h1>
+
+{{ phishing }}
+
+</h1>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h5>
+
+Safe Emails
+
+</h5>
+
+<h1>
+
+{{ total-phishing }}
+
+</h1>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<br>
+
+<a href="/scan"
+class="btn btn-primary">
+
+Scan New Email
+
+</a>
+
+{% endblock %}
